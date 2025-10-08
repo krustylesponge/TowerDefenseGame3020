@@ -21,6 +21,7 @@ public class EnemyMovement : MonoBehaviour
             pathIndex++;
             if (pathIndex >= LevelManager.main.path.Length)
             {
+                EnemySpawner.onEnemyKill.Invoke();
                 gameObject.SetActive(false);
                 return;
             }
