@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -27,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        StartWave();
+        StartCoroutine(StartWave()); //starts the process of the wave
     }
 
     private void Update()
@@ -53,8 +54,9 @@ public class EnemySpawner : MonoBehaviour
     {
         enemiesAlive--;
     }
-    private void StartWave()
+    private IEnumerator StartWave()
     {
+        yield return new WaitForSeconds(timeBetweenWaves); //starts up wave mechanics after time between waves passes
         isSpawning = true;
         enemiesLeftToSpawn = EnemiesPerWave();
     }
@@ -62,6 +64,8 @@ public class EnemySpawner : MonoBehaviour
     {
         isSpawning = false;
         timeSinceLastSpawn = 0;
+        currentWave++;
+        StartCoroutine(StartWave());
     }
     private void SpawnEnemy()
     {
