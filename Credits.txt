@@ -1,0 +1,5 @@
+Help with the code and ideas for how to make the game work - Muddy Wolf's "Build a 2D Tower Defence Game in unity" series found here https://youtu.be/WH8b2ihk_YA?si=_azj2275J2uov6f0
+ 
+Art by me
+
+Idea inspired by the Kingdom Rush series
