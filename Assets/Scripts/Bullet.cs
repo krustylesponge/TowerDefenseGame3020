@@ -4,7 +4,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
 
-    [SerializeField] private float bulletSpeed = 5f;
+    [SerializeField] private float bulletSpeed = 5f; //different bullet types such as arrows, magic, and axes will have different speeds
 
     private Transform target;
 
@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
     {
         if (!target) return;
         Vector2 direction = (target.position - transform.position).normalized;
-        rb.linearVelocity = direction * bulletSpeed;
+        rb.linearVelocity = direction * bulletSpeed; //this is so the bullets dont miss the target due to their curvy movement patterns or different speeds 
     }
     public void SetTarget(Transform _target)
     {
@@ -22,6 +22,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        gameObject.SetActive(false);
+        //health has yet to be added properly
+        gameObject.SetActive(false); //i plan to have a list of bullets to pull from, similarly to enemies
     }
 }

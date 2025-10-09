@@ -22,7 +22,7 @@ public class EnemyMovement : MonoBehaviour
             if (pathIndex >= LevelManager.main.path.Length)
             {
                 EnemySpawner.onEnemyKill.Invoke();
-                gameObject.SetActive(false);
+                gameObject.SetActive(false); //i plan to have a list of enemies later that will reuse the enemies that are disabled here to save on memory
                 return;
             }
             else

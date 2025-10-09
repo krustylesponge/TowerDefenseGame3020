@@ -19,11 +19,11 @@ public class Turret : MonoBehaviour
     private Transform target;
     private float timeUntilFire;
 
-    private void OnDrawGizmosSelected() //so we can see the attack range
-    {
-        Handles.color = Color.yellow;
-        Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
-    }
+    //private void OnDrawGizmosSelected() //so we can see the attack range
+    //{
+    //    Handles.color = Color.yellow;
+    //    Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
+    //}
 
     // Update is called once per frame
     void Update()
