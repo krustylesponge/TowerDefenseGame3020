@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -6289249103718529947}
   - component: {fileID: 9006293172131244004}
   - component: {fileID: 7256824373321677518}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Goblin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1693782842286330902}
   - component: {fileID: 2449435308299106558}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
