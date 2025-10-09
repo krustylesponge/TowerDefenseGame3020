@@ -6,12 +6,15 @@ public class Turret : MonoBehaviour
 {
     [SerializeField] private Transform turretRotationPoint;
     [SerializeField] private LayerMask enemyMask;
-    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject bulletPrefab; //will have different types of tower that shoot different bullet types, so far i have planned the archer,
+                                                      //who has fast but low damage bullets, the wizard, who has slower but stronger bullets, and the axe thrower,
+                                                      //who has lower range, but strong bullets
     [SerializeField] private Transform firingPoint;
 
     [SerializeField] private float targetingRange = 5f;
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] private float bps = 2;
+    //plan to have a gold cost for the building for you to build with
 
     private Transform target;
     private float timeUntilFire;
