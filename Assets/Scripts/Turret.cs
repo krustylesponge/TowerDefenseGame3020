@@ -6,21 +6,20 @@ public class Turret : MonoBehaviour
 {
     [SerializeField] private Transform turretRotationPoint;
     [SerializeField] private LayerMask enemyMask;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform firingPoint;
 
     [SerializeField] private float targetingRange = 5f;
     [SerializeField] private float rotationSpeed = 10f;
+    [SerializeField] private float bps = 2;
 
     private Transform target;
+    private float timeUntilFire;
 
     private void OnDrawGizmosSelected() //so we can see the attack range
     {
         Handles.color = Color.yellow;
         Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
@@ -36,6 +35,22 @@ public class Turret : MonoBehaviour
         {
             target = null;
         }
+        else
+        {
+            timeUntilFire += Time.deltaTime;
+            if (timeUntilFire >= 1/bps)
+            {
+                Shoot();
+                timeUntilFire = 0;
+            }
+        }
+    }
+
+    private void Shoot()
+    {
+        GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
+        Bullet bulletScript = bulletObj.GetComponent<Bullet>();
+        bulletScript.SetTarget(target);
     }
 
     private bool CheckTargetIsInRange()

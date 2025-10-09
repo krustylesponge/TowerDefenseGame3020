@@ -50,8 +50,11 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
+  bulletPrefab: {fileID: 3078300332520742875, guid: 412947d9856c8194281d1eb0594960fb, type: 3}
+  firingPoint: {fileID: 4286057638875206159}
   targetingRange: 3
   rotationSpeed: 250
+  bps: 0
 --- !u!1 &3676031783352276820
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,6 +229,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &7538449293368528615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4286057638875206159}
+  m_Layer: 0
+  m_Name: FiringPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4286057638875206159
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7538449293368528615}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.08, y: 0.35, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3007376449818033878}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9135841494109539695
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,5 +290,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9147552836387459600}
+  - {fileID: 4286057638875206159}
   m_Father: {fileID: 3924766142562996828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
