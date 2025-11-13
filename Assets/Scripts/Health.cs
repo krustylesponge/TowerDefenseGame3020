@@ -2,15 +2,18 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private int hitpoints = 2;
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(int damage)
     {
-        
+        hitpoints -= damage;
+
+        if (hitpoints <= 0)
+        {
+            EnemySpawner.onEnemyKill.Invoke();
+            int LayerDead = LayerMask.NameToLayer("Default");
+            gameObject.layer = LayerDead;
+            gameObject.SetActive(false);
+        }
     }
 }
