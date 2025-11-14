@@ -58,7 +58,7 @@ public class Turret : MonoBehaviour
 
     private bool CheckTargetIsInRange()
     {
-        return Vector2.Distance(target.position, transform.position) <= targetingRange;
+        return Vector2.Distance(target.position, transform.position) <= targetingRange && target.gameObject.activeSelf; //checks if target is in range AND active
     }
 
     private void FindTarget()

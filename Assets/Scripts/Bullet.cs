@@ -4,7 +4,8 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
 
-    [SerializeField] private float bulletSpeed = 5f; //different bullet types such as arrows, magic, and axes will have different speeds
+    [SerializeField] private float bulletSpeed = 5f; //different bullet types such as arrows, magic, and axes will have different speeds and damages
+    [SerializeField] private int bulletDamage = 1;
 
     private Transform target;
 
@@ -22,7 +23,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        //health has yet to be added properly
+        other.gameObject.GetComponent<Health>().TakeDamage(bulletDamage);
         gameObject.SetActive(false); //i plan to have a list of bullets to pull from, similarly to enemies
     }
 }
