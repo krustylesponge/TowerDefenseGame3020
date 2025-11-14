@@ -15,7 +15,7 @@ public class Plot : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        sr.color = hoverColor;
+        sr.color = hoverColor; //sets plot to yellow when hovered over
     }
 
     private void OnMouseExit()
