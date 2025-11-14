@@ -25,6 +25,9 @@ public class Plot : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("Build tower");
+        if (tower != null)
+            return; //currently does nothing, will have systems such as selling towers later
+        GameObject towerToBuild = BuildManager.instance.GetSelectedTower();
+        tower = Instantiate(towerToBuild, transform.position, Quaternion.identity);
     }
 }
