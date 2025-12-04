@@ -10,7 +10,7 @@ public class Menu : MonoBehaviour
 
     public void ToggleMenu()
     {
-        isMenuOpen = !isMenuOpen;
+        isMenuOpen = !isMenuOpen; //flips if the menu is active or not
         anim.SetBool("MenuOpen", isMenuOpen);
     }
 
