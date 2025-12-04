@@ -27,7 +27,7 @@ public class Plot : MonoBehaviour
     {
         if (tower != null)
             return; //currently does nothing, will have systems such as selling towers later
-        GameObject towerToBuild = BuildManager.instance.GetSelectedTower();
-        tower = Instantiate(towerToBuild, transform.position, Quaternion.identity);
+        Tower towerToBuild = BuildManager.instance.GetSelectedTower();
+        tower = Instantiate(towerToBuild.towerPrefab, transform.position, Quaternion.identity);
     }
 }
