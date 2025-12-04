@@ -9,4 +9,9 @@ public class Menu : MonoBehaviour
     {
         goldUI.text = "Gold: " + LevelManager.main.gold.ToString(); //makes the gold value able to be placed into the gold for the shop
     }
+
+    public void SetSelected()
+    {
+
+    }
 }
