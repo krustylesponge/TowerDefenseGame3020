@@ -125,6 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba7da30b30fb44438e06944f6465395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitpoints: 2
+  goldValue: 10
 --- !u!1 &1786551085047538533
 GameObject:
   m_ObjectHideFlags: 0
