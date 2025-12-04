@@ -10,7 +10,7 @@ public class Tower
     public int cost;
     public GameObject towerPrefab;
 
-    public Tower (string _name, int _cost, GameObject _prefab)
+    public Tower (string _name, int _cost, GameObject _prefab) //OOP for making easy towers in the shops
     {
         name = _name;
         cost = _cost;
