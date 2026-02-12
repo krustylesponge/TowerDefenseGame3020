@@ -13,7 +13,7 @@ public class Turret : MonoBehaviour
 
     [SerializeField] private float targetingRange = 5f;
     [SerializeField] private float rotationSpeed = 10f;
-    [SerializeField] private float bps = 2;
+    [SerializeField] private float attackSpeed = 2;
     //plan to have a gold cost for the building for you to build with
 
     private Transform target;
@@ -41,7 +41,7 @@ public class Turret : MonoBehaviour
         else
         {
             timeUntilFire += Time.deltaTime;
-            if (timeUntilFire >= 1/bps)
+            if (timeUntilFire >= 1/attackSpeed)
             {
                 Shoot();
                 timeUntilFire = 0;
