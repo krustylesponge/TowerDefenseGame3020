@@ -26,8 +26,8 @@ public class EnemySpawner : MonoBehaviour
     private void Awake()
     {
         onEnemyKill.AddListener(EnemyKilled);
-        onDeath.AddListener(EndWave);
         onDeath.AddListener(Die);
+        onDeath.AddListener(EndWave);
     }
 
     private void Start()
@@ -52,8 +52,11 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    private void Die() //flips a bool so that the game stops spawning new waves
+    {
+        stillAlive = false;
+    }
     
-
     private void EnemyKilled()
     {
         enemiesAlive--;
@@ -83,10 +86,5 @@ public class EnemySpawner : MonoBehaviour
     private int EnemiesPerWave()
     {
         return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currentWave, difficultyFactor)); //creates scaling difficulty
-    }
-
-    private void Die()
-    {
-        stillAlive = false;
     }
 }

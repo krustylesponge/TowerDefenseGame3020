@@ -113,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: -6289249103718529947}
   moveSpeed: 1
+  playerDamage: 1
 --- !u!114 &-4969712392673492414
 MonoBehaviour:
   m_ObjectHideFlags: 0

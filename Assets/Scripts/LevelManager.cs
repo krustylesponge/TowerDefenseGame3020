@@ -43,13 +43,17 @@ public class LevelManager : MonoBehaviour
         }
     }
     
-    public void Hurt(int hurtVal)
+    public void Hurt(int hurtVal) //player takes damage from enemies
     {
         hp -= hurtVal;
         if (hp <= 0)
         {
-
+            hpText.text = "HP: 0";
+            EnemySpawner.onDeath.Invoke();
         }
-        hpText.text = "HP: " + hp;
+        else
+        {
+            hpText.text = "HP: " + hp;
+        }
     }
 }

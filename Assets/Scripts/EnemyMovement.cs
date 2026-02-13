@@ -6,6 +6,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
 
     [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private int playerDamage = 1;
 
     private Transform target; //tells us where the next place to get to is
     private int pathIndex = 0; //tells us which "node" in the path they've reached
@@ -26,6 +27,7 @@ public class EnemyMovement : MonoBehaviour
             if (pathIndex >= LevelManager.main.path.Length)
             {
                 EnemySpawner.onEnemyKill.Invoke();
+                LevelManager.main.Hurt(playerDamage);
                 gameObject.SetActive(false); //i plan to have a list of enemies later that will reuse the enemies that are disabled here to save on memory
                 return;
             }
