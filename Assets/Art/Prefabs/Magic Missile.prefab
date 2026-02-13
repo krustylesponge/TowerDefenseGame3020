@@ -114,6 +114,9 @@ MonoBehaviour:
   rb: {fileID: 1742727552233316064}
   bulletSpeed: 3
   bulletDamage: 3
+  bulletCausesSlowness: 1
+  bulletSlowness: 0.5
+  slownessTime: 2
 --- !u!1 &4818406823674532965
 GameObject:
   m_ObjectHideFlags: 0

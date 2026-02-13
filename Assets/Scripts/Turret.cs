@@ -8,7 +8,7 @@ public class Turret : MonoBehaviour
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject bulletPrefab; //will have different types of tower that shoot different bullet types, so far i have planned the archer,
                                                       //who has fast but low damage bullets, the wizard, who has slower but stronger bullets, and the axe thrower,
-                                                      //who has lower range, but strong bullets
+                                                      //who has lower range, but strong bullets (Chris suggested idea to make it more of a melee AoE which i like)
     [SerializeField] private Transform firingPoint;
 
     [SerializeField] private float targetingRange = 5f;

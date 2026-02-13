@@ -14,16 +14,20 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float difficultyFactor = 0.75f;
 
     public static UnityEvent onEnemyKill = new UnityEvent();
+    public static UnityEvent onDeath = new UnityEvent();
 
     private int currentWave = 1;
     private float timeSinceLastSpawn;
     private int enemiesAlive;
     private int enemiesLeftToSpawn;
     private bool isSpawning = false;
+    private bool stillAlive = true;
 
     private void Awake()
     {
         onEnemyKill.AddListener(EnemyKilled);
+        onDeath.AddListener(EndWave);
+        onDeath.AddListener(Die);
     }
 
     private void Start()
@@ -64,8 +68,11 @@ public class EnemySpawner : MonoBehaviour
     {
         isSpawning = false;
         timeSinceLastSpawn = 0;
-        currentWave++;
-        StartCoroutine(StartWave());
+        if (stillAlive)
+        {
+            currentWave++;
+            StartCoroutine(StartWave());
+        }
     }
     private void SpawnEnemy()
     {
@@ -76,5 +83,10 @@ public class EnemySpawner : MonoBehaviour
     private int EnemiesPerWave()
     {
         return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currentWave, difficultyFactor)); //creates scaling difficulty
+    }
+
+    private void Die()
+    {
+        stillAlive = false;
     }
 }

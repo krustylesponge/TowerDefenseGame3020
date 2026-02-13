@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -6,6 +7,9 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] private float bulletSpeed = 5f; //different bullet types such as arrows, magic, and axes will have different speeds and damages
     [SerializeField] private int bulletDamage = 1;
+    [SerializeField] bool bulletCausesSlowness = false;
+    [SerializeField] float bulletSlowness = 0.5f;
+    [SerializeField] float slownessTime = 2;
 
     private Transform target;
 
@@ -24,6 +28,11 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         other.gameObject.GetComponent<Health>().TakeDamage(bulletDamage);
+        if (bulletCausesSlowness)
+        {
+            EnemyMovement em = other.transform.GetComponent<EnemyMovement>();
+            em.UpdateSpeed(bulletSlowness, slownessTime);
+        }
         gameObject.SetActive(false); //i plan to have a list of bullets to pull from, similarly to enemies
     }
 }
