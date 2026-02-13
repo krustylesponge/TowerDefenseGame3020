@@ -113,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: -6289249103718529947}
   moveSpeed: 1
+  playerDamage: 1
 --- !u!114 &-4969712392673492414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba7da30b30fb44438e06944f6465395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitpoints: 2
+  hitpoints: 5
   goldValue: 10
 --- !u!1 &1786551085047538533
 GameObject:

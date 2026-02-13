@@ -14,16 +14,20 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float difficultyFactor = 0.75f;
 
     public static UnityEvent onEnemyKill = new UnityEvent();
+    public static UnityEvent onDeath = new UnityEvent();
 
     private int currentWave = 1;
     private float timeSinceLastSpawn;
     private int enemiesAlive;
     private int enemiesLeftToSpawn;
     private bool isSpawning = false;
+    private bool stillAlive = true;
 
     private void Awake()
     {
         onEnemyKill.AddListener(EnemyKilled);
+        onDeath.AddListener(Die);
+        onDeath.AddListener(EndWave);
     }
 
     private void Start()
@@ -48,8 +52,11 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    private void Die() //flips a bool so that the game stops spawning new waves
+    {
+        stillAlive = false;
+    }
     
-
     private void EnemyKilled()
     {
         enemiesAlive--;
@@ -64,8 +71,11 @@ public class EnemySpawner : MonoBehaviour
     {
         isSpawning = false;
         timeSinceLastSpawn = 0;
-        currentWave++;
-        StartCoroutine(StartWave());
+        if (stillAlive)
+        {
+            currentWave++;
+            StartCoroutine(StartWave());
+        }
     }
     private void SpawnEnemy()
     {
