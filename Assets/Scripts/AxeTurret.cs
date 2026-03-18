@@ -1,7 +1,7 @@
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class MageTurret : MonoBehaviour
+public class AxeTurret : MonoBehaviour
 {
     [SerializeField] private LayerMask enemyMask;
 
