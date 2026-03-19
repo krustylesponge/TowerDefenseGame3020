@@ -16,6 +16,6 @@ public class Menu : MonoBehaviour
 
     private void OnGUI()
     {
-        goldUI.text = "Gold: " + LevelManager.main.gold.ToString(); //makes the gold value able to be placed into the gold for the shop
+        goldUI.text = "Gold: " + LevelManager.Instance.gold.ToString(); //makes the gold value able to be placed into the gold for the shop
     }
 }

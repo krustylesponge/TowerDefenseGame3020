@@ -74,7 +74,7 @@ public class EnemySpawner : MonoBehaviour
     {
         isSpawning = false;
         timeSinceLastSpawn = 0;
-        if (stillAlive)
+        if (stillAlive && currentWave <= LevelManager.Instance.maxWaveCount)
         {
             currentWave++;
             StartCoroutine(StartWave());
@@ -83,7 +83,7 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         GameObject prefabToSpawn = enemyPrefabs[0]; //will have more enemy types later such as ogres, trolls, and other monsters
-        Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
+        Instantiate(prefabToSpawn, LevelManager.Instance.startPoint.position, Quaternion.identity);
     }
     
     private int EnemiesPerWave()

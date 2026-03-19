@@ -4,23 +4,26 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI hpText;
-    public static LevelManager main;
+    [SerializeField] private int startingGold = 100;
+    [SerializeField] private int startingHp = 20;
+    public static LevelManager Instance;
 
     public Transform startPoint; //so the enemies know where to spawn from
     public Transform[] path; //so the enemies know where to go
-    
+
+    public int maxWaveCount;
+
     public int gold;
     public int hp;
-
     private void Awake()
     {
-        main = this;
+        Instance = this;
     }
 
     private void Start()
     {
-        gold = 100;
-        hp = 20;
+        gold = startingGold;
+        hp = startingHp;
         hpText.text = "HP: " + hp;
     }
 

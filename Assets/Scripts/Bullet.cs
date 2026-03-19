@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Bullet : MonoBehaviour
 {
@@ -16,7 +17,11 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!target) return;
+        if (!target || (transform.position - target.transform.position).sqrMagnitude < 0.01f)
+        {
+            gameObject.SetActive(false); //stops bullet from lingering on track
+            return;
+        }
         Vector2 direction = (target.position - transform.position).normalized;
         rb.linearVelocity = direction * bulletSpeed; //this is so the bullets dont miss the target due to their curvy movement patterns or different speeds 
     }

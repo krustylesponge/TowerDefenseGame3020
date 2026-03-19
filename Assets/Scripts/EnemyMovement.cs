@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         baseSpeed = moveSpeed;
-        target = LevelManager.main.path[pathIndex];
+        target = LevelManager.Instance.path[pathIndex];
     }
 
     private void Update()
@@ -24,16 +24,16 @@ public class EnemyMovement : MonoBehaviour
         if (Vector2.Distance(target.position, transform.position) <= 0.1f)
         {
             pathIndex++;
-            if (pathIndex >= LevelManager.main.path.Length)
+            if (pathIndex >= LevelManager.Instance.path.Length)
             {
                 EnemySpawner.onEnemyKill.Invoke();
-                LevelManager.main.Hurt(playerDamage);
+                LevelManager.Instance.Hurt(playerDamage);
                 gameObject.SetActive(false); //i plan to have a list of enemies later that will reuse the enemies that are disabled here to save on memory
                 return;
             }
             else
             {
-                target = LevelManager.main.path[pathIndex];
+                target = LevelManager.Instance.path[pathIndex];
             }
         }
     }

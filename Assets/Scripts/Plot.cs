@@ -35,7 +35,7 @@ public class Plot : MonoBehaviour
             return;
         }
         Tower towerToBuild = BuildManager.Instance.GetSelectedTower();
-        if (!LevelManager.main.SpendGold(towerToBuild.cost)) //checks if we have enough gold to buy towerObj, if we dont, returns and does nothing, if we do, it goes onward to spawn the towerObj
+        if (!LevelManager.Instance.SpendGold(towerToBuild.cost)) //checks if we have enough gold to buy towerObj, if we dont, returns and does nothing, if we do, it goes onward to spawn the towerObj
         {
             return;
         }

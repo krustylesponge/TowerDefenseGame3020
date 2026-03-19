@@ -17,9 +17,9 @@ public class Turret : MonoBehaviour
     [SerializeField] private float targetingRange = 5f;
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] private float attackSpeed = 2;
-    //plan to have a gold cost for the building for you to build with
+    [SerializeField] private int baseUpgradeCost = 100;
 
-    private float bpsBase;
+    private float bpsBase; //bps stands for bullets per second
     private float targetingRangeBase;
 
     private Transform target;
@@ -32,6 +32,14 @@ public class Turret : MonoBehaviour
     //    Handles.color = Color.yellow;
     //    Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
     //}
+
+    private void Start()
+    {
+        bpsBase = attackSpeed;
+        targetingRangeBase = targetingRange;
+
+        upgradeButton.onClick.AddListener(Upgrade);
+    }
 
     // Update is called once per frame
     void Update()
@@ -92,10 +100,34 @@ public class Turret : MonoBehaviour
     public void CloseUpgradeUI()
     {
         upgradeUI.SetActive(false);
+        UIManager.Instance.SetHoveringState(false);
     }
 
     public void Upgrade()
     {
+        if (CalculateCost() > LevelManager.Instance.gold) return;
 
+        LevelManager.Instance.SpendGold(CalculateCost());
+
+        level++;
+        attackSpeed = CalculateBPS();
+        targetingRange = CalculateRange();
+
+        CloseUpgradeUI();
+    }
+
+    private int CalculateCost()
+    {
+        return Mathf.RoundToInt(baseUpgradeCost * Mathf.Pow(level, 0.8f));
+    }
+
+    private float CalculateBPS()
+    {
+        return bpsBase * Mathf.Pow(level, 0.6f);
+    }
+
+    private float CalculateRange()
+    {
+        return targetingRangeBase * Mathf.Pow(level, 0.4f);
     }
 }

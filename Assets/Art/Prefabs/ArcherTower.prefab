@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.24528301, g: 0.16379255, b: 0.07983268, a: 0.40392157}
+  m_Color: {r: 0.24528301, g: 0.16379255, b: 0.07983268, a: 0.4117647}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -134,6 +134,7 @@ MonoBehaviour:
   targetingRange: 3
   rotationSpeed: 250
   attackSpeed: 2
+  baseUpgradeCost: 100
 --- !u!1 &3676031783352276820
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,6 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4110596f38d65e48b6a05caa8407059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouseOver: 0
 --- !u!1 &7261034364220137526
 GameObject:
   m_ObjectHideFlags: 0
