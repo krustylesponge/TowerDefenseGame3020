@@ -1,12 +1,16 @@
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemyPrefabs;
+
+    [SerializeField] private TextMeshProUGUI waveText;
 
     [SerializeField] private int baseEnemies = 8;
     [SerializeField] private float enemiesPerSec = 0.5f;
@@ -35,6 +39,7 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         StartCoroutine(StartWave()); //starts the process of the wave
+        waveText.text = "Wave " + currentWave;
     }
 
     private void Update()
@@ -74,10 +79,18 @@ public class EnemySpawner : MonoBehaviour
     {
         isSpawning = false;
         timeSinceLastSpawn = 0;
-        if (stillAlive && currentWave <= LevelManager.Instance.maxWaveCount)
+        if (stillAlive && currentWave < LevelManager.Instance.maxWaveCount)
         {
             currentWave++;
+            waveText.text = "Wave " + currentWave;
             StartCoroutine(StartWave());
+        }
+        else if (currentWave >= LevelManager.Instance.maxWaveCount)
+        {
+            if (LevelManager.Instance.GetNextLevel() != -1)
+            {
+                SceneManager.LoadScene(LevelManager.Instance.GetNextLevel());
+            }
         }
     }
     private void SpawnEnemy()

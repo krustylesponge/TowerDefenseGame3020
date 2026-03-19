@@ -6,13 +6,14 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI hpText;
     [SerializeField] private int startingGold = 100;
     [SerializeField] private int startingHp = 20;
+    [SerializeField] private int levelNumber; 
+    [SerializeField] private int nextLevel; //makes it so i can change around levels easier + can check if there is a level to go to, set to -1 for no next level
     public static LevelManager Instance;
 
     public Transform startPoint; //so the enemies know where to spawn from
     public Transform[] path; //so the enemies know where to go
 
     public int maxWaveCount;
-
     public int gold;
     public int hp;
     private void Awake()
@@ -58,5 +59,15 @@ public class LevelManager : MonoBehaviour
         {
             hpText.text = "HP: " + hp;
         }
+    }
+
+    public int GetLevelNumber()
+    {
+        return levelNumber;
+    }
+
+    public int GetNextLevel()
+    {
+        return nextLevel;
     }
 }
