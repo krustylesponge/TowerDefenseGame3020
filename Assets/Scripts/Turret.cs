@@ -1,23 +1,31 @@
 using UnityEngine;
 using UnityEditor;
 using System;
+using UnityEngine.UI;
 
 public class Turret : MonoBehaviour
 {
     [SerializeField] private Transform turretRotationPoint;
     [SerializeField] private LayerMask enemyMask;
-    [SerializeField] private GameObject bulletPrefab; //will have different types of tower that shoot different bullet types, so far i have planned the archer,
+    [SerializeField] private GameObject bulletPrefab; //will have different types of towerObj that shoot different bullet types, so far i have planned the archer,
                                                       //who has fast but low damage bullets, the wizard, who has slower but stronger bullets, and the axe thrower,
                                                       //who has lower range, but strong bullets (Chris suggested idea to make it more of a melee AoE which i like)
     [SerializeField] private Transform firingPoint;
+    [SerializeField] private GameObject upgradeUI;
+    [SerializeField] private Button upgradeButton;
 
     [SerializeField] private float targetingRange = 5f;
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] private float attackSpeed = 2;
     //plan to have a gold cost for the building for you to build with
 
+    private float bpsBase;
+    private float targetingRangeBase;
+
     private Transform target;
     private float timeUntilFire;
+
+    private int level = 1;
 
     //private void OnDrawGizmosSelected() //so we can see the attack range
     //{
@@ -74,5 +82,20 @@ public class Turret : MonoBehaviour
         float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
         turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+    }
+
+    public void OpenUpgradeUI()
+    {
+        upgradeUI.SetActive(true);
+    }
+
+    public void CloseUpgradeUI()
+    {
+        upgradeUI.SetActive(false);
+    }
+
+    public void Upgrade()
+    {
+
     }
 }

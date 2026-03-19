@@ -1180,7 +1180,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 0000000059d5e5234d2e4fc61367e0176b0d0184
+  m_ApplyToSortingLayers: 0000000059d5e5234d2e4fc61367e0176b0d01843bd68141
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -1575,6 +1575,7 @@ GameObject:
   - component: {fileID: 1157370296}
   - component: {fileID: 1157370298}
   - component: {fileID: 1157370299}
+  - component: {fileID: 1157370300}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -1651,6 +1652,7 @@ MonoBehaviour:
   enemiesPerSec: 0.5
   timeBetweenWaves: 5
   difficultyFactor: 0.75
+  enemiesPerSecCap: 15
 --- !u!114 &1157370299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1670,6 +1672,18 @@ MonoBehaviour:
   - name: Mage Tower
     cost: 30
     towerPrefab: {fileID: 3575880334535263565, guid: 2c684ccbd94b647499f67ec251a12ca0, type: 3}
+--- !u!114 &1157370300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157370295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32168feaba00dcc438f783bd6e5d5b4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1231840240
 GameObject:
   m_ObjectHideFlags: 0
