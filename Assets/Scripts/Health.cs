@@ -13,7 +13,7 @@ public class Health : MonoBehaviour
         if (hitpoints <= 0 && !isDead)
         {
             EnemySpawner.onEnemyKill.Invoke();
-            LevelManager.main.IncreaseGold(goldValue);
+            LevelManager.Instance.IncreaseGold(goldValue);
             isDead = true;
             int LayerDead = LayerMask.NameToLayer("Default");
             gameObject.layer = LayerDead;

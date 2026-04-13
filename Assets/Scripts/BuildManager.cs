@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class BuildManager : MonoBehaviour
 {
-    public static BuildManager instance;
+    public static BuildManager Instance;
 
-    [SerializeField] private Tower[] towers; //will have more towers than just archer tower available
+    [SerializeField] private Tower[] towers; //will have more towers than just archer towerObj available
 
-    private int selectedTower = 0; //int for interating through list of tower types, will later have a way to change the value
+    private int selectedTower = 0; //int for interating through list of towerObj types, will later have a way to change the value
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
     }
 
     public Tower GetSelectedTower()

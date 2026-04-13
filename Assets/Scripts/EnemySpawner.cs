@@ -1,12 +1,16 @@
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemyPrefabs;
+
+    [SerializeField] private TextMeshProUGUI waveText;
 
     [SerializeField] private int baseEnemies = 8;
     [SerializeField] private float enemiesPerSec = 0.5f;
@@ -35,6 +39,7 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         StartCoroutine(StartWave()); //starts the process of the wave
+        waveText.text = "Wave " + currentWave;
     }
 
     private void Update()
@@ -74,16 +79,24 @@ public class EnemySpawner : MonoBehaviour
     {
         isSpawning = false;
         timeSinceLastSpawn = 0;
-        if (stillAlive)
+        if (stillAlive && currentWave < LevelManager.Instance.maxWaveCount)
         {
             currentWave++;
+            waveText.text = "Wave " + currentWave;
             StartCoroutine(StartWave());
+        }
+        else if (currentWave >= LevelManager.Instance.maxWaveCount)
+        {
+            if (LevelManager.Instance.GetNextLevel() != -1)
+            {
+                SceneManager.LoadScene(LevelManager.Instance.GetNextLevel());
+            }
         }
     }
     private void SpawnEnemy()
     {
         GameObject prefabToSpawn = enemyPrefabs[0]; //will have more enemy types later such as ogres, trolls, and other monsters
-        Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
+        Instantiate(prefabToSpawn, LevelManager.Instance.startPoint.position, Quaternion.identity);
     }
     
     private int EnemiesPerWave()
