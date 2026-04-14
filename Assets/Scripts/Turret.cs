@@ -18,6 +18,7 @@ public class Turret : MonoBehaviour
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] private float attackSpeed = 2;
     [SerializeField] private int baseUpgradeCost = 100;
+    [SerializeField] private int maxLevel = 3;
 
     private float bpsBase; //bps stands for bullets per second
     private float targetingRangeBase;
@@ -106,6 +107,11 @@ public class Turret : MonoBehaviour
     public void Upgrade()
     {
         if (CalculateCost() > LevelManager.Instance.gold) return;
+        if (level >= maxLevel)
+        {
+            Debug.Log("Max turret level reached");
+            return;
+        }
 
         LevelManager.Instance.SpendGold(CalculateCost());
 
