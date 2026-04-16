@@ -120,7 +120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5558844342776385603}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7245764282236816853}
+        m_TargetAssemblyTypeName: Turret, Assembly-CSharp
+        m_MethodName: Upgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3575880334535263565
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,7 +142,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3924766142562996828}
-  - component: {fileID: 1784053246994200897}
+  - component: {fileID: 7245764282236816853}
   m_Layer: 0
   m_Name: MageTower
   m_TagString: Untagged
@@ -156,7 +168,7 @@ Transform:
   - {fileID: 6500282606023686720}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1784053246994200897
+--- !u!114 &7245764282236816853
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,21 +177,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 3575880334535263565}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03bfba2abb63b7542a35a9871a29335f, type: 3}
+  m_Script: {fileID: 11500000, guid: d9540b4e5c0b57e41b4e70b1b1224249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   turretRotationPoint: {fileID: 3007376449818033878}
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
-  bulletPrefab: {fileID: 3078300332520742875, guid: df7fb3af2cef987449c903d48b8bf270, type: 3}
-  firingPoint: {fileID: 4286057638875206159}
   upgradeUI: {fileID: 3807519893969281977}
   upgradeButton: {fileID: 4418563557418412215}
   targetingRange: 2.5
   rotationSpeed: 250
   attackSpeed: 2
   baseUpgradeCost: 100
+  maxLevel: 3
+  bulletPrefab: {fileID: 3078300332520742875, guid: df7fb3af2cef987449c903d48b8bf270, type: 3}
+  firingPoint: {fileID: 4286057638875206159}
 --- !u!1 &3807519893969281977
 GameObject:
   m_ObjectHideFlags: 0

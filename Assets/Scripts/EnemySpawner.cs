@@ -39,7 +39,7 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         StartCoroutine(StartWave()); //starts the process of the wave
-        waveText.text = "Wave " + currentWave;
+        waveText.text = "Wave " + currentWave + "/" + LevelManager.Instance.maxWaveCount;
     }
 
     private void Update()
@@ -82,7 +82,7 @@ public class EnemySpawner : MonoBehaviour
         if (stillAlive && currentWave < LevelManager.Instance.maxWaveCount)
         {
             currentWave++;
-            waveText.text = "Wave " + currentWave;
+            waveText.text = "Wave " + currentWave + "/" + LevelManager.Instance.maxWaveCount;
             StartCoroutine(StartWave());
         }
         else if (currentWave >= LevelManager.Instance.maxWaveCount)
