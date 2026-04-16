@@ -135,6 +135,9 @@ MonoBehaviour:
   damage: 1
   baseUpgradeCost: 100
   maxLevel: 3
+  bpsScaleValue: 0.6
+  rangeScaleValue: 0.4
+  damageScaleValue: 0.1
   bulletPrefab: {fileID: 3078300332520742875, guid: 412947d9856c8194281d1eb0594960fb, type: 3}
   firingPoint: {fileID: 4286057638875206159}
 --- !u!1 &3676031783352276820

@@ -17,9 +17,13 @@ public class Turret : MonoBehaviour
 
     [SerializeField] private int baseUpgradeCost = 100;
     [SerializeField] private int maxLevel = 3;
+    [SerializeField] private float bpsScaleValue = 0.6f;
+    [SerializeField] private float rangeScaleValue = 0.4f;
+    [SerializeField] private float damageScaleValue = 0.2f;
 
     protected float bpsBase; //bps stands for bullets per second
     protected float targetingRangeBase;
+    protected int damageBase;
 
     protected Transform target;
     protected float timeUntilFire;
@@ -72,6 +76,7 @@ public class Turret : MonoBehaviour
         level++;
         attackSpeed = CalculateBPS();
         targetingRange = CalculateRange();
+        damage = CalculateDamage();
 
         CloseUpgradeUI();
     }
@@ -83,11 +88,16 @@ public class Turret : MonoBehaviour
 
     private float CalculateBPS()
     {
-        return bpsBase * Mathf.Pow(level, 0.6f);
+        return bpsBase * Mathf.Pow(level, bpsScaleValue);
     }
 
     private float CalculateRange()
     {
-        return targetingRangeBase * Mathf.Pow(level, 0.4f);
+        return targetingRangeBase * Mathf.Pow(level, rangeScaleValue);
+    }
+
+    private int CalculateDamage()
+    {
+        return damageBase * Mathf.RoundToInt(Mathf.Pow(level, damageScaleValue));
     }
 }

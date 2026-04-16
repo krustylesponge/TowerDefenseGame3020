@@ -13,6 +13,7 @@ public class ProjectileTurret : Turret
     {
         bpsBase = attackSpeed;
         targetingRangeBase = targetingRange;
+        damageBase = damage;
 
         upgradeButton.onClick.AddListener(Upgrade);
     }

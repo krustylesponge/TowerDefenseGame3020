@@ -8,8 +8,8 @@ public class AxeTurret : Turret
     void Start()
     {
         bpsBase = attackSpeed;
-        Debug.Log(bpsBase);
         targetingRangeBase = targetingRange;
+        damageBase = damage;
 
         upgradeButton.onClick.AddListener(Upgrade);
     }

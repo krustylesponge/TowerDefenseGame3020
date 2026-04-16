@@ -221,10 +221,13 @@ MonoBehaviour:
   upgradeButton: {fileID: 8242363089418197260}
   targetingRange: 1.25
   rotationSpeed: 250
-  attackSpeed: 2
+  attackSpeed: 0.4
   damage: 4
   baseUpgradeCost: 100
   maxLevel: 3
+  bpsScaleValue: 0.6
+  rangeScaleValue: 0.3
+  damageScaleValue: 0.3
   anim: {fileID: 5004050470278132387}
 --- !u!95 &5004050470278132387
 Animator:
