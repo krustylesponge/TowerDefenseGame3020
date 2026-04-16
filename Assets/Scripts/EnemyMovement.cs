@@ -50,6 +50,8 @@ public class EnemyMovement : MonoBehaviour
         moveSpeed = newSpeed;
         if (timeTillReset != 0)
         {
+            if (this.gameObject.GetComponent<Health>().GetHitPoints() <= 0)
+                return;
             StartCoroutine(ResetSpeed(timeTillReset));
         }
     }

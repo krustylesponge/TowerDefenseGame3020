@@ -20,4 +20,9 @@ public class Health : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
+    public int GetHitPoints()
+    {
+        return hitpoints;
+    }
 }
