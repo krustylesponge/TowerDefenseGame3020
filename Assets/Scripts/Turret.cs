@@ -13,6 +13,8 @@ public class Turret : MonoBehaviour
     [SerializeField] protected float targetingRange = 5f;
     [SerializeField] protected float rotationSpeed = 250f;
     [SerializeField] protected float attackSpeed = 2;
+    [SerializeField] protected int damage;
+
     [SerializeField] private int baseUpgradeCost = 100;
     [SerializeField] private int maxLevel = 3;
 
@@ -71,8 +73,6 @@ public class Turret : MonoBehaviour
         attackSpeed = CalculateBPS();
         targetingRange = CalculateRange();
 
-        Debug.Log("Upgraded tower stats: atkSpd: " + attackSpeed + ". tgtRng: " + targetingRange + ".");
-
         CloseUpgradeUI();
     }
 
@@ -83,10 +83,6 @@ public class Turret : MonoBehaviour
 
     private float CalculateBPS()
     {
-        Debug.Log(level);
-        Debug.Log(bpsBase);
-        Debug.Log(Mathf.Pow(level, 0.6f));
-        Debug.Log(bpsBase * Mathf.Pow(level, 0.6f));
         return bpsBase * Mathf.Pow(level, 0.6f);
     }
 

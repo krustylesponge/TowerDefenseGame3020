@@ -12,7 +12,6 @@ public class ProjectileTurret : Turret
     void Start()
     {
         bpsBase = attackSpeed;
-        Debug.Log(bpsBase);
         targetingRangeBase = targetingRange;
 
         upgradeButton.onClick.AddListener(Upgrade);
@@ -47,6 +46,7 @@ public class ProjectileTurret : Turret
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
         Bullet bulletScript = bulletObj.GetComponent<Bullet>();
         bulletScript.SetTarget(target);
+        bulletScript.SetDamage(damage);
     }
 
     private bool CheckTargetIsInRange()

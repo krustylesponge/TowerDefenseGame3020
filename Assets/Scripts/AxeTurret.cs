@@ -16,24 +16,24 @@ public class AxeTurret : Turret
     // Update is called once per frame
     void Update()
     {
-        //if (target == null)
-        //{
-        //    FindTarget();
-        //    return;
-        //}
-        //RotateTowardsTarget();
-        //if (!CheckTargetIsInRange())
-        //{
-        //    target = null;
-        //}
-        //else
-        //{
-        //    timeUntilFire += Time.deltaTime;
-        //    if (timeUntilFire >= 1 / attackSpeed)
-        //    {
-        //        Shoot();
-        //        timeUntilFire = 0;
-        //    }
-        //}
+        timeUntilFire += Time.deltaTime;
+        if (timeUntilFire >= 1 / attackSpeed)
+        {
+            Slice();
+            timeUntilFire = 0;
+        }
+    }
+    private void Slice()
+    {
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, enemyMask);
+        if (hits.Length > 0)
+        {
+            for (int i = 0; i < hits.Length; i++)
+            {
+                RaycastHit2D hit = hits[i];
+
+                hit.transform.GetComponent<Health>().TakeDamage(damage);
+            }
+        }
     }
 }

@@ -189,6 +189,7 @@ MonoBehaviour:
   targetingRange: 2.5
   rotationSpeed: 250
   attackSpeed: 2
+  damage: 3
   baseUpgradeCost: 100
   maxLevel: 3
   bulletPrefab: {fileID: 3078300332520742875, guid: df7fb3af2cef987449c903d48b8bf270, type: 3}

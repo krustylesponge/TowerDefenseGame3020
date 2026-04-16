@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
 
     [SerializeField] private float bulletSpeed = 5f; //different bullet types such as arrows, magic, and axes will have different speeds and damages
-    [SerializeField] private int bulletDamage = 1;
+    [SerializeField] private int bulletDamage = 0;
     [SerializeField] bool bulletCausesSlowness = false;
     [SerializeField] float bulletSlowness = 0.5f;
     [SerializeField] float slownessTime = 2;
@@ -28,6 +28,11 @@ public class Bullet : MonoBehaviour
     public void SetTarget(Transform _target)
     {
         target = _target;
+    }
+
+    public void SetDamage(int _damage)
+    {
+        bulletDamage = _damage;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
