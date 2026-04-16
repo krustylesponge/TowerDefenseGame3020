@@ -7,10 +7,11 @@ public class Bullet : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
 
     [SerializeField] private float bulletSpeed = 5f; //different bullet types such as arrows, magic, and axes will have different speeds and damages
-    [SerializeField] private int bulletDamage = 0;
     [SerializeField] bool bulletCausesSlowness = false;
     [SerializeField] float bulletSlowness = 0.5f;
     [SerializeField] float slownessTime = 2;
+
+    private int bulletDamage = 0;
 
     private Transform target;
 

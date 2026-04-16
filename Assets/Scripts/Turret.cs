@@ -13,7 +13,7 @@ public class Turret : MonoBehaviour
     [SerializeField] protected float targetingRange = 5f;
     [SerializeField] protected float rotationSpeed = 250f;
     [SerializeField] protected float attackSpeed = 2;
-    [SerializeField] protected int damage;
+    [SerializeField] protected int damage = 1;
 
     [SerializeField] private int baseUpgradeCost = 100;
     [SerializeField] private int maxLevel = 3;
@@ -26,11 +26,11 @@ public class Turret : MonoBehaviour
 
     protected int level = 1;
 
-    //private void OnDrawGizmosSelected() //so we can see the attack range
-    //{
-    //    Handles.color = Color.yellow;
-    //    Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
-    //}
+    private void OnDrawGizmosSelected() //so we can see the attack range
+    {
+        Handles.color = Color.yellow;
+        Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
+    }
 
     private void Start()
     {
