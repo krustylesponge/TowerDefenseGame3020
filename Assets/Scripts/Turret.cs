@@ -30,11 +30,11 @@ public class Turret : MonoBehaviour
 
     protected int level = 1;
 
-    private void OnDrawGizmosSelected() //so we can see the attack range
-    {
-        Handles.color = Color.yellow;
-        Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
-    }
+    //private void OnDrawGizmosSelected() //so we can see the attack range
+    //{
+    //    Handles.color = Color.yellow;
+    //    Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
+    //}
 
     private void Start()
     {

@@ -223,10 +223,10 @@ MonoBehaviour:
   rotationSpeed: 250
   attackSpeed: 0.4
   damage: 4
-  baseUpgradeCost: 100
-  maxLevel: 3
-  bpsScaleValue: 0.6
-  rangeScaleValue: 0.3
+  baseUpgradeCost: 125
+  maxLevel: 4
+  bpsScaleValue: 0.5
+  rangeScaleValue: 0.2
   damageScaleValue: 0.3
   anim: {fileID: 5004050470278132387}
 --- !u!95 &5004050470278132387
