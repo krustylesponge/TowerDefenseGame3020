@@ -5,7 +5,8 @@ public class Plot : MonoBehaviour
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private Color hoverColor;
     
-    private GameObject tower;
+    public GameObject towerObj;
+    public Turret turret;
     private Color startColor;
 
     private void Start()
@@ -25,9 +26,20 @@ public class Plot : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (tower != null)
-            return; //currently does nothing, will have systems such as selling towers later
-        GameObject towerToBuild = BuildManager.instance.GetSelectedTower();
-        tower = Instantiate(towerToBuild, transform.position, Quaternion.identity);
+        if (UIManager.Instance.IsHoveringUI())
+            return;
+
+        if (towerObj != null)
+        {
+            turret.OpenUpgradeUI(); 
+            return;
+        }
+        Tower towerToBuild = BuildManager.Instance.GetSelectedTower();
+        if (!LevelManager.Instance.SpendGold(towerToBuild.cost)) //checks if we have enough gold to buy towerObj, if we dont, returns and does nothing, if we do, it goes onward to spawn the towerObj
+        {
+            return;
+        }
+        towerObj = Instantiate(towerToBuild.towerPrefab, transform.position, Quaternion.identity);
+        turret = towerObj.GetComponent<Turret>();
     }
 }
